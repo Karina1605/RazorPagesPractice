@@ -1,0 +1,37 @@
+﻿@model (int, IEnumerable<TestPages.DataBaseModels.Product>)
+@ViewBag["Title"] ="Index"
+
+<h2>
+    Edit User info
+</h2>
+
+
+@Html.ActionLink("Add new", "CreateNew");
+
+<table>
+    @for (int i=Model.Item1*10; i< Model.Item1 * 10 +10; ++i)
+    {
+    <tr>
+        <td>
+            @Model.Item2.ElementAt(i).Name
+        </td>
+        <td>
+            @Model.Item2.ElementAt(i).Cost
+        </td>
+        <td>
+            @Model.Item2.ElementAt(i).Count
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Item2.ElementAt(i).Id }) | 
+            @Html.ActionLink("Delete", "DeleteOne", new {id =Model.Item2.ElementAt(i).Id })
+        </td>
+    </tr>
+    }
+</table>
+<ul>
+    @for (int i = 1; i <= Model.Item2.Count() / 10 + 1; ++i)
+    {
+        <li>@Html.ActionLink(@i.ToString(), "Index", new {page = @i }) </li>
+    }
+
+</ul>

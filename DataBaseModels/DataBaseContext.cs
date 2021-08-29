@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TestPages.Models;
 
 namespace TestPages.DataBaseModels
 {
@@ -17,7 +18,8 @@ namespace TestPages.DataBaseModels
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=SocialNetwork;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=TestPages;Trusted_Connection=True;");
         }
+
     }
 }
